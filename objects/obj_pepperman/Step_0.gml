@@ -271,7 +271,7 @@ else
 }
 if (_art && artdudes == false)
 {
-	alarm[8] = 600;
+	alarm[8] = (variable_global_exists("one_last_try") && global.one_last_try) ? 390 : 600;
 	artdudes = true;
 }
 if (state != states.stun)

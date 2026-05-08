@@ -10,6 +10,14 @@ with (obj_pepperman)
 				image_xscale = other.image_xscale;
 				number = other.number;
 			}
+			if (variable_global_exists("one_last_try") && global.one_last_try)
+			{
+				with (instance_create(x + (128 * image_xscale), -85, obj_pepper_marbleblock))
+				{
+					image_xscale = other.image_xscale;
+					number = other.number;
+				}
+			}
 			created = true;
 		}
 	}
