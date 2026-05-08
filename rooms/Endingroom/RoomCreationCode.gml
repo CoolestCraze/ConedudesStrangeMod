@@ -6,3 +6,8 @@ if (ini_read_string("Game", "finalrank", "none") == "none")
 	notification_push(notifications.game_beaten, [room]);
 }
 ini_close();
+global.olt_unlocked = true;
+ini_open_from_string(obj_savesystem.ini_str_options);
+ini_write_real("Game", "olt_unlocked", 1);
+obj_savesystem.ini_str_options = ini_close();
+gamesave_async_save_options();

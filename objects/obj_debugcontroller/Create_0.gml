@@ -367,6 +367,18 @@ if (DEBUG)
 			}
 		}
 	});
+	ONELASTTRY = new DebugCommand("one_last_try", "Toggles One Last Try mode", "<bool>", function(_bool)
+	{
+		if (_bool == undefined)
+		{
+			exit;
+		}
+		_bool = get_bool(_bool);
+		if (_bool != undefined)
+		{
+			global.one_last_try = _bool;
+		}
+	});
 	PLAYER_SET_STATE = new DebugCommand("player_set_state", "Changes the player state", "<states.state>", function(_state)
 	{
 		if (_state == undefined)
@@ -416,7 +428,7 @@ if (DEBUG)
 	ds_map_set(state_map, "states.firemouth", states.firemouth);
 	ds_map_set(state_map, "states.ratmount", states.ratmount);
 	command_list = ds_list_create();
-	ds_list_add(command_list, DESTROYICE, SET_GAME_SPEED, SHOW_HUD, SHOW_COLLISIONS, PLAYER_ROOM, CAMERA_ZOOM, HARDMODE, PLAYER_SET_STATE, PANIC, ALLTOPPINS, GIVEHEAT, ROOMCHECK, SWITCH_CHAR, SET_BOSS_HP);
+	ds_list_add(command_list, DESTROYICE, SET_GAME_SPEED, SHOW_HUD, SHOW_COLLISIONS, PLAYER_ROOM, CAMERA_ZOOM, HARDMODE, ONELASTTRY, PLAYER_SET_STATE, PANIC, ALLTOPPINS, GIVEHEAT, ROOMCHECK, SWITCH_CHAR, SET_BOSS_HP);
 	ds_list_add(command_list, OTHERTEST, KILL_BOSS, TEST_P_RANK, FILL_GATESWITCH, SETCOMBO, GIVEKEY, LOADTEST, NOCLIP, THROWARC, HIDETILES, LOCKCAMERA, BOSSINVINCIBLE, UNLOCK_TOPPINS, UNLOCK_BOSS_KEY, SHOW_DEBUG_OVERLAY, GOTOEDITOR);
 	input_text = "";
 	text_list = ds_list_create();
