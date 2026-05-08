@@ -6,3 +6,6 @@ Temp/
 # GMS2 local user settings
 *.config.gmx
 local.settings.gmx
+
+# Large FMOD audio banks (exceed GitHub's 100MB limit)
+datafiles/sound/Desktop/music.bank
