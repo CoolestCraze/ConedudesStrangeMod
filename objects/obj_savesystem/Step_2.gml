@@ -19,6 +19,7 @@ if (state == 0)
 			ini_write_real("Game", "percent", get_percentage());
 			ini_write_real("Game", "minutes", global.file_minutes);
 			ini_write_real("Game", "seconds", global.file_seconds);
+			ini_write_real("Game", "olt_unlocked", global.olt_unlocked);
 			var closestring = ini_close();
 			buffer_write(savebuff, buffer_string, closestring);
 			buffer_save_async(savebuff, get_savefile_ini(ispeppino), 0, buffer_get_size(savebuff));

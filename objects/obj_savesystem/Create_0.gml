@@ -15,5 +15,7 @@ icon_index = 0;
 ispeppino = true;
 icon_max = sprite_get_number(spr_pizzaslice);
 ini_open("saveData.ini");
-global.olt_unlocked = ini_read_real("Game", "olt_unlocked", 0);
 ini_str_options = ini_close();
+ini_open_from_string(ini_str_options);
+global.olt_unlocked = ini_read_real("Game", "olt_unlocked", 0);
+ini_close();
