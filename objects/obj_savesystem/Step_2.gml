@@ -19,7 +19,6 @@ if (state == 0)
 			ini_write_real("Game", "percent", get_percentage());
 			ini_write_real("Game", "minutes", global.file_minutes);
 			ini_write_real("Game", "seconds", global.file_seconds);
-			ini_write_real("Game", "olt_unlocked", global.olt_unlocked);
 			var closestring = ini_close();
 			buffer_write(savebuff, buffer_string, closestring);
 			buffer_save_async(savebuff, get_savefile_ini(ispeppino), 0, buffer_get_size(savebuff));
@@ -33,6 +32,9 @@ if (state == 0)
 			savebuff = buffer_create(1, buffer_grow, 1);
 			showicon = true;
 			icon_alpha = 3;
+			ini_open_from_string(ini_str_options);
+			ini_write_real("Game", "olt_unlocked", global.olt_unlocked);
+			ini_str_options = ini_close();
 			buffer_write(savebuff, buffer_string, ini_str_options);
 			buffer_save_async(savebuff, "saveData.ini", 0, buffer_get_size(savebuff));
 			saveid = buffer_async_group_end();
