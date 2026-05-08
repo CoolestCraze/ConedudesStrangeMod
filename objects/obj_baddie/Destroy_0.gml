@@ -123,7 +123,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && important == false)
 			global.enemykilled += 1;
 			global.combotime = 60;
 		}
-		if (instance_exists(obj_hardmode))
+		if (instance_exists(obj_hardmode) || (variable_global_exists("one_last_try") && global.one_last_try))
 		{
 			global.heatmeter_count++;
 		}

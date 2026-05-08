@@ -22,6 +22,7 @@
     {"id":{"name":"tile_farmdeco","path":"tilesets/tile_farmdeco/tile_farmdeco.yy",},"order":1,},
     {"id":{"name":"scr_player_knightpepbump","path":"scripts/scr_player_knightpepbump/scr_player_knightpepbump.yy",},"order":2,},
     {"id":{"name":"obj_hardmode","path":"objects/obj_hardmode/obj_hardmode.yy",},"order":2,},
+    {"id":{"name":"obj_one_last_try","path":"objects/obj_one_last_try/obj_one_last_try.yy",},"order":3,},
     {"id":{"name":"shd_rainbow","path":"shaders/shd_rainbow/shd_rainbow.yy",},"order":2,},
     {"id":{"name":"font1","path":"fonts/font1/font1.yy",},"order":2,},
     {"id":{"name":"fmod_gms","path":"extensions/fmod_gms/fmod_gms.yy",},"order":2,},

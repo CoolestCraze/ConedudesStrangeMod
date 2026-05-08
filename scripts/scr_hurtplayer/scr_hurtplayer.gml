@@ -212,7 +212,7 @@ function scr_hurtplayer(_player)
 				fmod_event_one_shot_3d("event:/sfx/mort/mortdead", x, y);
 				create_debris(x, y - 40, spr_mortdead);
 			}
-			if (instance_exists(obj_hardmode))
+			if (instance_exists(obj_hardmode) || (variable_global_exists("one_last_try") && global.one_last_try))
 			{
 				global.heatmeter_count = (global.heatmeter_threshold - 1) * global.heatmeter_threshold_count;
 			}
