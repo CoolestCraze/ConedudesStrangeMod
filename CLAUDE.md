@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is **ConedudesStrangeMod**, a GameMaker Studio 2 (GMS2) mod of Pizza Tower (a commercial indie 2D platformer). The project is large (~764 MB, 1,229 objects, 849 rooms, 10,600+ GML script files).
 
-The repository lives inside the project folder at `ConedudesStrangeMod/` (the git root), while the GameMaker project files sit one level up at the working directory root.
+The git repository root is the working directory itself — `PizzaTower_GM2.yyp` and all asset folders are at the top level.
 
 ## Building & Running
 
