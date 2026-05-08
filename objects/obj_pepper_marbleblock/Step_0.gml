@@ -48,6 +48,18 @@ if (contemplated)
 	}
 }
 image_index = round(maxhp - hp);
+// OLT: signal boss when this block becomes a statue (hp <= 0)
+if (hp <= 0 && variable_instance_exists(id, "olt_boss") && instance_exists(olt_boss))
+{
+	if (olt_block_id == 1 && !olt_boss.olt_marble_1_done)
+	{
+		olt_boss.olt_marble_1_done = true;
+	}
+	if (olt_block_id == 2 && !olt_boss.olt_marble_2_done)
+	{
+		olt_boss.olt_marble_2_done = true;
+	}
+}
 if (ANIMATION_END)
 {
 	instance_destroy(grabID);

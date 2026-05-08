@@ -61,8 +61,42 @@ switch (state)
 	case states.staggered:
 		scr_enemy_staggered();
 		break;
+	case states.olt_magnum_opus:
+		// OLT extra phase: march and send artdudes until both marble blocks are chiseled
+		hsp = 0;
+		if (grounded)
+		{
+			sprite_index = spr_pepperman_idle;
+			image_speed  = 0.35;
+		}
+		// Periodically spawn artdudes from both sides
+		if (olt_drawing_timer <= 0)
+		{
+			with (instance_create(-10, 400, obj_peppermanartdude))
+			{
+				image_xscale = 1;
+			}
+			with (instance_create(room_width + 10, 400, obj_peppermanartdude))
+			{
+				image_xscale = -1;
+			}
+			olt_drawing_timer = 90;
+		}
+		olt_drawing_timer--;
+		// Shell breaks when both blocks become statues
+		if (olt_shell_active && olt_marble_1_done && olt_marble_2_done)
+		{
+			olt_shell_active = false;
+			// Enter contemplate (vulnerable) state — player can land the final hit
+			state        = states.contemplate;
+			hsp          = 0;
+			vsp          = 0;
+			sprite_index = spr_pepperman_contemplate;
+			animbuffer   = 80;
+		}
+		break;
 }
-if (state != states.stun && state != states.hit && state != states.phase1hurt && state != states.supergrab && (state != states.walk || flickertime <= 0))
+if (state != states.stun && state != states.hit && state != states.phase1hurt && state != states.supergrab && state != states.olt_magnum_opus && (state != states.walk || flickertime <= 0))
 {
 	scr_pepperman_do_contemplate();
 }
@@ -231,11 +265,17 @@ if (landbuffer2 > 0)
 		invincible = true;
 	}
 }
-if ((!invincible || (state == states.mini && ministate != states.transitioncutscene) || (wastedhits == 9 && phase == 1 && state == states.contemplate)) && !flash && alarm[5] < 0)
+// OLT shell: force invincible while marble shell is active
+if (olt_shell_active)
+{
+	invincible = true;
+}
+var _olt_vulnerable = (olt_phase_triggered && !olt_shell_active && state == states.contemplate);
+if ((!invincible || (state == states.mini && ministate != states.transitioncutscene) || (wastedhits == 9 && phase == 1 && state == states.contemplate) || _olt_vulnerable) && !flash && alarm[5] < 0)
 {
 	alarm[5] = 0.15 * room_speed;
 }
-else if (invincible && (state != states.mini || ministate == states.transitioncutscene) && (wastedhits != 9 || phase != 1 || state != states.contemplate))
+else if (invincible && (state != states.mini || ministate == states.transitioncutscene) && (wastedhits != 9 || phase != 1 || state != states.contemplate) && !_olt_vulnerable)
 {
 	flash = false;
 }
