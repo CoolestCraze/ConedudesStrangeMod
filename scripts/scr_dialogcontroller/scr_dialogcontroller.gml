@@ -82,12 +82,13 @@ function scr_string_width(_str)
 	return w;
 }
 
-function scr_separate_text(_str, _font = noone, _targetwidth = 0)
+function scr_separate_text(_str, _font = noone, _targetwidth = noone)
 {
 	if (_font != noone)
 	{
 		draw_set_font(_font);
 	}
+	if (_targetwidth == noone || _targetwidth <= 0) return _str;
 	var separation = lang_get_value("separation_map");
 	separation = string_split(separation, ",");
 	var _start_pos = 0;
