@@ -68,7 +68,6 @@ else if (state == states.mini && ministate != states.transitioncutscene && (othe
 	{
 		// OLT: intercept defeat — Pepperman grows back and gains a marble shell
 		olt_phase_triggered = true;
-		olt_shell_active    = true;
 		olt_marble_1_done   = false;
 		olt_marble_2_done   = false;
 		hp = 1;
@@ -90,6 +89,7 @@ else if (state == states.mini && ministate != states.transitioncutscene && (othe
 		}
 		if (array_length(_spots) >= 2)
 		{
+			olt_shell_active = true;
 			var _s1 = _spots[0];
 			var _s2 = _spots[1];
 			instance_destroy(obj_pepper_marbleblock);
@@ -109,12 +109,34 @@ else if (state == states.mini && ministate != states.transitioncutscene && (othe
 				olt_boss     = _pepper_id;
 				olt_block_id = 2;
 			}
+			do_dialog([
+				dialog_create("You dare lay hands on a MASTERPIECE?!", spr_pepperman_contemplate),
+				dialog_create("I'll show you real art.", spr_pepperman_contemplate)
+			]);
 		}
-
-		do_dialog([
-			dialog_create("You dare lay hands on a MASTERPIECE?!", spr_pepperman_contemplate),
-			dialog_create("I''ll show you real art.", spr_pepperman_contemplate)
-		]);
+		else
+		{
+			// Not enough marble spots — skip OLT, let normal defeat proceed
+			olt_phase_triggered = false;
+			var lay1 = layer_get_id("Backgrounds_scroll");
+			var lay2 = layer_get_id("Backgrounds_2");
+			var lay3 = layer_get_id("Backgrounds_1");
+			layer_set_visible(lay3, true);
+			var bg1 = layer_background_get_id(lay1);
+			var bg2 = layer_background_get_id(lay2);
+			layer_background_change(bg1, bg_peppermanbosscloud1);
+			layer_background_change(bg2, bg_peppermanboss1);
+			layer_hspeed(lay1, 1);
+			obj_bosscontroller.alarm[1] = 5;
+			scr_sleep(25);
+			instance_destroy(obj_peppermanartdude);
+			instance_destroy(obj_peppermanbowlingball);
+			instance_destroy(obj_peppermanbowlingballspawner);
+			instance_destroy(obj_peppermanGIANTbowlingball);
+			destroyable = true;
+			spr_dead = spr_pepperman_minifall;
+			instance_destroy();
+		}
 	}
 	else
 	{
