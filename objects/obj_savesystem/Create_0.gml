@@ -18,4 +18,6 @@ ini_open("saveData.ini");
 ini_str_options = ini_close();
 ini_open_from_string(ini_str_options);
 global.olt_unlocked = ini_read_real("Game", "olt_unlocked", 0);
+global.olt_harder_bosses = ini_read_real("Game", "olt_harder_bosses", 1);
+global.olt_elite_enemies = ini_read_real("Game", "olt_elite_enemies", 1);
 ini_close();

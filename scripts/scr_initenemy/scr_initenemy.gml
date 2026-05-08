@@ -136,7 +136,8 @@ function scr_initenemy()
 	use_collision = true;
 	turner = false;
 	elite = false;
-	if (variable_global_exists("one_last_try") && global.one_last_try) {
+	if (variable_global_exists("one_last_try") && global.one_last_try
+	    && variable_global_exists("olt_elite_enemies") && global.olt_elite_enemies) {
 	    switch (global.heatmeter_threshold) {
 	        case 1: elite = (irandom(2) == 0); break;
 	        case 2: elite = (irandom(2) != 0); break;

@@ -34,6 +34,8 @@ if (state == 0)
 			icon_alpha = 3;
 			ini_open_from_string(ini_str_options);
 			ini_write_real("Game", "olt_unlocked", global.olt_unlocked);
+			ini_write_real("Game", "olt_harder_bosses", global.olt_harder_bosses);
+			ini_write_real("Game", "olt_elite_enemies", global.olt_elite_enemies);
 			ini_str_options = ini_close();
 			buffer_write(savebuff, buffer_string, ini_str_options);
 			buffer_save_async(savebuff, "saveData.ini", 0, buffer_get_size(savebuff));

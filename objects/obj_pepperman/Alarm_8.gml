@@ -31,4 +31,4 @@ if (!pizzahead)
 		knightdir *= -1;
 	}
 }
-alarm[8] = (variable_global_exists("one_last_try") && global.one_last_try) ? 650 : 1000;
+alarm[8] = (variable_global_exists("one_last_try") && global.one_last_try && global.olt_harder_bosses) ? 650 : 1000;

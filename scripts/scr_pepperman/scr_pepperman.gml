@@ -607,7 +607,7 @@ function scr_pepperman_shoulderbash()
 			state = states.stun;
 			hsp = -image_xscale * 5;
 			vsp = -8;
-			stunned = (variable_global_exists("one_last_try") && global.one_last_try) ? 150 : 220;
+			stunned = (variable_global_exists("one_last_try") && global.one_last_try && global.olt_harder_bosses) ? 150 : 220;
 			sprite_index = spr_pepperman_shoulderhurtstart;
 			image_index = 0;
 			image_speed = 0.35;
@@ -655,7 +655,7 @@ function scr_pepperman_shoulderbash()
 	}
 	if (attackspeed < 20)
 	{
-		var _olt_spd_mult = (variable_global_exists("one_last_try") && global.one_last_try) ? 1.35 : 1.0;
+		var _olt_spd_mult = (variable_global_exists("one_last_try") && global.one_last_try && global.olt_harder_bosses) ? 1.35 : 1.0;
 		if (phase == 2)
 		{
 			attackspeed += 0.5 * _olt_spd_mult;

@@ -227,6 +227,24 @@ add_option_toggle(game_menu, 6, "option_timer_speedrun", function(_speedrun)
 	obj_savesystem.ini_str_options = ini_close();
 	global.option_speedrun_timer = _speedrun;
 }).value = global.option_speedrun_timer;
+var _olt_harder = add_option_toggle(game_menu, 7, "HARDER BOSSES", function(_val)
+{
+	global.olt_harder_bosses = _val;
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Game", "olt_harder_bosses", _val);
+	obj_savesystem.ini_str_options = ini_close();
+});
+_olt_harder.value = global.olt_harder_bosses;
+_olt_harder.localization = false;
+var _olt_elite = add_option_toggle(game_menu, 8, "ELITE ENEMIES", function(_val)
+{
+	global.olt_elite_enemies = _val;
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Game", "olt_elite_enemies", _val);
+	obj_savesystem.ini_str_options = ini_close();
+});
+_olt_elite.value = global.olt_elite_enemies;
+_olt_elite.localization = false;
 array_push(menus, game_menu);
 var controls_menu = create_menu_fixed(menuids.controls, menuanchors.left, 150, 40);
 add_option_press(controls_menu, 0, "option_back", function()

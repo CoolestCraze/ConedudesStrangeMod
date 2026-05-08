@@ -1,5 +1,7 @@
-global.one_last_try = false;
+global.one_last_try = true;
 global.olt_unlocked = false;
+global.olt_harder_bosses = true;
+global.olt_elite_enemies = true;
 
 if (!variable_global_exists("heatmeter_threshold")) {
     global.heatmeter_threshold = 0;
