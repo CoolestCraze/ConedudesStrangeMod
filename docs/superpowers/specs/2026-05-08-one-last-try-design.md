@@ -73,6 +73,11 @@ This uses the existing rage dash, hitbox creation, and afterimage system with ze
 
 *Trigger:* Tiny Pepperman is caught and hit. Instead of ending the fight, Pepperman snaps and grows back to full size.
 
+*Cutscene:*
+> *"You dare lay hands on a MASTERPIECE?!"*
+> *"I'll show you real art."*
+*Pepperman grows back. Marble shell forms around him.*
+
 *Mechanic:* Pepperman encases himself in a giant marble statue shell — invulnerable to all normal attacks. Two art marble blocks spawn. The player must chisel both into Pepperman statues (8 hits each). While doing this:
 - Animated pepper drawings swarm the arena nonstop
 - Sliding statue pairs keep coming
@@ -96,6 +101,12 @@ Once both blocks are chiseled, Pepperman stops to admire them (his existing vuln
 **Extra Phase — "This Ain't Over"**
 
 *Trigger:* Quick draw duel ends. Instead of going down, The Vigilante gets back up.
+
+*Cutscene:*
+> *"...I was set up."*
+> *"Pizzahead used me like a pawn."*
+*Throws the revolver away. Traps crash down from above. King Ghost materialises.*
+> *"This ain't about the law no more."*
 
 *Setup:* He throws away his revolver. The player's revolver also disappears. The arena stays dark from Phase 2. Three traps spawn in the arena (anchor trap + knight trap combination) — these use the existing `obj_anchortrap` and `obj_knighttrap` objects. **King Ghost** (`obj_trapghost`) materialises and behaves exactly as coded: he floats toward the nearest trap and possesses it, using his existing anchor drop and knight electrocute attacks.
 
@@ -125,6 +136,13 @@ Once both blocks are chiseled, Pepperman stops to admire them (his existing vuln
 
 *Trigger:* Noisette drags The Noise offscreen. He breaks free and crashes back into the arena.
 
+*Cutscene:*
+*Offscreen explosion. The Noise crashes back in.*
+> *"LADIES AND GENTLEMEN—"*
+> *"YOU THOUGHT THE SHOW WAS OVER?!"*
+> *"THIS. IS. MY. FINALE."*
+*Armor suit slams on.*
+
 *Setup:* The Noise re-enters wearing a cobbled suit of armor made from all his gadgets combined. No taunt windows between attacks. The only way to stagger him is to grab a Noisey and throw it — 3 Noisey hits crack the armor. Once cracked, a normal taunt window opens for one damage hit. Repeat 3 times.
 
 *Each of the 3 armor-break cycles uses a different transformation:*
@@ -152,6 +170,11 @@ Once both blocks are chiseled, Pepperman stops to admire them (his existing vuln
 
 *Trigger:* Player reaches the exit at the end of the chase hallway. Ground breaks again. The giant Fake Peppino crashes into a proper open arena.
 
+*Cutscene:*
+*Player reaches the exit. One beat of silence.*
+> *"you cant leave"*
+*Floor breaks.*
+
 *Stats:* 3 HP.
 
 *Attacks:*
@@ -177,7 +200,12 @@ Once both blocks are chiseled, Pepperman stops to admire them (his existing vuln
 *Trigger:* Phase 4's final hit lands. Pizzahead stumbles — then smiles.
 
 *Cutscene:*
-Broken Pizzaface reboots, eyes glowing red. Pizzahead points toward Peppino's Pizza on the horizon. Pizzaface begins charging a massive laser directly at it. Pizzahead turns back to Peppino, cracks his knuckles. The phase begins.
+*Pizzahead stumbles on the fourth hit. Slowly smiles.*
+> *"Heh..."*
+> *"You really thought you won?"*
+*Broken Pizzaface reboots behind him, eyes glowing red. Pizzahead points toward Peppino's Pizza on the horizon. Laser begins charging.*
+> *"GET. OUT."*
+*Pizzahead turns back. Cracks his knuckles. The phase begins.*
 
 This is a direct narrative callback to the game's opening scene — Pizzaface threatening to destroy Peppino's Pizza with a laser is exactly why Peppino climbed the tower. In One Last Try, that threat becomes real.
 
@@ -212,7 +240,7 @@ The Stupid Rat heal means passive play loses — the player must stay aggressive
 
 ---
 
-## Open Questions
+## Resolved Questions
 
-- Should the laser charge bar share screen space with the existing heat meter, or have its own position?
-- Should OLT be unlockable (e.g. beat the game first) or always available via debug toggle?
+- **Laser charge bar position:** The heat meter only appears in regular stages, not boss fights, so the laser bar has no conflict. It gets its own position in the boss HUD.
+- **OLT unlock:** Always available via debug toggle. Normally unlocked by beating the game (same pattern as other post-game content).
