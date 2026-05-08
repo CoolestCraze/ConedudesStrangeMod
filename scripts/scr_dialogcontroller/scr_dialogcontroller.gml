@@ -82,7 +82,7 @@ function scr_string_width(_str)
 	return w;
 }
 
-function scr_separate_text(_str, _font, _targetwidth)
+function scr_separate_text(_str, _font = noone, _targetwidth = 0)
 {
 	if (_font != noone)
 	{

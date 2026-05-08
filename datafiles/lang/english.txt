@@ -277,6 +277,8 @@ option_timer_levelsave = "BOTH"
 option_timer_speedrun = "SPEEDRUN TIMER"
 option_erase_save = "ERASE SAVE DATA"
 option_screenshake = "SCREEN SHAKE"
+option_olt_harder_bosses = "HARDER BOSSES"
+option_olt_elite_enemies = "ELITE ENEMIES"
 
 option_controller = "CONTROLLER"
 option_keyboard = "KEYBOARD"
