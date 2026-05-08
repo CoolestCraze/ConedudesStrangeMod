@@ -82,6 +82,7 @@ else if (state == states.mini && ministate != states.transitioncutscene && (othe
 		image_speed    = 0.35;
 
 		// Spawn two marble blocks from the marblespots (reuse existing spot logic)
+		var _pepper_id = id;
 		var _spots = [];
 		with (obj_pepper_marblespot)
 		{
@@ -97,7 +98,7 @@ else if (state == states.mini && ministate != states.transitioncutscene && (othe
 				image_xscale = _s1.image_xscale;
 				number       = _s1.number;
 				parentID     = _s1;
-				olt_boss     = other.id;
+				olt_boss     = _pepper_id;
 				olt_block_id = 1;
 			}
 			with (instance_create(_s2.x, -85, obj_pepper_marbleblock))
@@ -105,14 +106,14 @@ else if (state == states.mini && ministate != states.transitioncutscene && (othe
 				image_xscale = _s2.image_xscale;
 				number       = _s2.number;
 				parentID     = _s2;
-				olt_boss     = other.id;
+				olt_boss     = _pepper_id;
 				olt_block_id = 2;
 			}
 		}
 
 		do_dialog([
 			dialog_create("You dare lay hands on a MASTERPIECE?!", spr_pepperman_contemplate),
-			dialog_create("I''ll show you what REAL art looks like!!", spr_pepperman_contemplate)
+			dialog_create("I''ll show you real art.", spr_pepperman_contemplate)
 		]);
 	}
 	else
