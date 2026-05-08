@@ -1,0 +1,8 @@
+# GameMaker Studio 2 build cache and temp files
+.cache/
+Temp/
+*.yyz
+
+# GMS2 local user settings
+*.config.gmx
+local.settings.gmx
