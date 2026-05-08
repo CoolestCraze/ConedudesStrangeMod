@@ -136,6 +136,13 @@ function scr_initenemy()
 	use_collision = true;
 	turner = false;
 	elite = false;
+	if (variable_global_exists("one_last_try") && global.one_last_try) {
+	    switch (global.heatmeter_threshold) {
+	        case 1: elite = (irandom(2) == 0); break;
+	        case 2: elite = (irandom(2) != 0); break;
+	        case 3: elite = true; break;
+	    }
+	}
 	elitehit = 0;
 	elitegrab = false;
 	elitehurt = true;
